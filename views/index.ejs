@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <% include partials/head %>        
+    </head>
+    <body>
+        <header>     
+          <% include partials/header %>             
+        </header>
+        <div class="container">
+            <h1 class="mt-5"> <%= title %> </h1>
+            <section class="tasks_list">
+              <ul>
+                <% tasks.forEach(function(task){ %>
+                  <li> <a class="mr-2" href="/delete/<%= tasks.indexOf(task) %>" >x</a><%= task %></li>
+                <% }); %>
+              </ul>
+            </section>
+          <!-- > -->
+            <form action="/add" method="post" >
+             <label >Que dois-je faire ?</label>
+             <input type="text" name="item_list" id="item_list" placeholder="Enter your task ...">
+             <input type="submit" id="validate" name="validate"value="validate">
+            </form>
+            <footer>
+               <% include partials/footer %>
+            </footer>
+        </div>    
+    </body>
+</html>
